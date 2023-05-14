@@ -23,6 +23,7 @@ const NavBar = () => {
                             <MdPets className="w-6 h-6 text-color-login cursor-pointer" />
                         </div>
                         <p className="text-gray-700">Bem-vindo, {userFull.nome}</p>
+                        <Link to='/admin'>Admin</Link>
                         <img src={userFull.imagem} alt="" className="w-10 h-10 rounded-full" />
                         <HiOutlineLogout onClick={logOutUser} className="w-6 h-6 cursor-pointer transition duration-300 hover:scale-110 text-red-800" />
                     </div>

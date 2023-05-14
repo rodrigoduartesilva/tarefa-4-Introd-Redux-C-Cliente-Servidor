@@ -16,6 +16,8 @@ import NotFound from './pages/NotFound';
 import CadSuccess from './components/CadSuccess';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
+import Admin from './pages/Admin';
+import AddProduct from './pages/AddProduct';
 
 function App() {
   return (
@@ -26,6 +28,18 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
+          <Route path='/admin' element={<Admin />} />
+          {/* <Route path='/admin' element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/add-product' element={<AddProduct />} />
+          {/* <Route path='/add-product' element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          } /> */}
           <Route path='/contato' element={<Contato />} />
           <Route path='/servicelist' element={
             <ProtectedRoute>
