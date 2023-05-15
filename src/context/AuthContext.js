@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
             findUserById(userInfo.id);
             setUserLogged(true);
         }
-        console.log(userInfo);
         setLoading(false);
     }, []);
 
@@ -41,7 +40,6 @@ const AuthProvider = ({ children }) => {
     const findUserById = async (idUser) => {
         const response = await getUserById(idUser);
         setUserFull(response.data);
-        console.log(userFull);
     }
 
     if (loading) {

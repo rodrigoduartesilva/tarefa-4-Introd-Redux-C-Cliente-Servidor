@@ -41,11 +41,12 @@ function App() {
             </ProtectedRoute>
           } /> */}
           <Route path='/contato' element={<Contato />} />
-          <Route path='/servicelist' element={
+          <Route path='/servicelist' element={<ServiceList />} />
+          {/* <Route path='/servicelist' element={
             <ProtectedRoute>
               <ServiceList />
             </ProtectedRoute>
-          } />
+          } /> */}
 
           <Route path='/gatomenu/:id' element={<CatShowerServiceItemInformation />} />
           <Route path='/gatomenu_/:id' element={<CatVetServiceItemInformation />} />

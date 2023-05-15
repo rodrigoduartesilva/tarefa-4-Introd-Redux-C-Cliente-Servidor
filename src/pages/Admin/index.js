@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../../components/Button'
 import { RiEdit2Fill } from 'react-icons/ri';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';

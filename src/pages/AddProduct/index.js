@@ -38,19 +38,20 @@ const AddProduct = () => {
             ...productForm,
             [event.target.name]: event.target.value
         });
-        console.log(productForm);
     }
 
     const handleSubmit = async (event) => {
-        event.prevetDefault();
-        const categoriaId = selected.map(category => {
+        event.preventDefault();
+
+        const categoriesId = selected.map(category => {
             return {
                 _id: category.value
             }
         });
+
         const product = {
             ...productForm,
-            categorias: categoriaId,
+            categorias: categoriesId,
             precoUnitario: parseInt(productForm.precoUnitario),
             codigoBarra: parseInt(productForm.codigoBarra)
         }
@@ -133,7 +134,7 @@ const AddProduct = () => {
                     />
 
                     <div className='mt-8'>
-                        <button className='w-full bg-primary text-white px-8 py-2 rounded transition duration-300 hover:scale-105'>Adicionar</button>
+                        <button type='submit' className='w-full bg-primary text-white px-8 py-2 rounded transition duration-300 hover:scale-105'>Adicionar</button>
                     </div>
                 </div>
 
