@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { RiEdit2Fill } from 'react-icons/ri';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
+import { findAllProducts } from '../../services/productService';
 
 const Admin = () => {
+    const [products, setProducts] = useState([]);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getAllProducts();
+    }, []);
+
+    const getAllProducts = async () => {
+        const response = await findAllProducts();
+        setProducts(response.data);
+    }
+
     return (
         <section className='my-12 max-w-screen-xl mx-auto px-6'>
             <div className='flex justify-end space-y-2'>
@@ -35,26 +48,28 @@ const Admin = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className='bg-white border-b'>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
-                                            <img src='' alt='img' />
-                                        </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
-                                            Produto 1
-                                        </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
-                                            10
-                                        </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
-                                            12345678
-                                        </td>
-                                        <td className='px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center'>
-                                            <div className='flex items-center justify-center space-x-3'>
-                                                <RiEdit2Fill className='cursor-pointer hover:text-green-700 text-2xl text-green-500' />
-                                                <RiDeleteBin5Fill className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {products.map(product => (
+                                        <tr key={product._id} className='bg-white border-b'>
+                                            <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
+                                                <img className='w-16' src={product.imagem} alt={product.nome} />
+                                            </td>
+                                            <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
+                                                {product.nome}
+                                            </td>
+                                            <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
+                                                R$ {(product.precoUnitario).toFixed(2)}
+                                            </td>
+                                            <td className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
+                                                {product.codigoBarra}
+                                            </td>
+                                            <td className='px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center'>
+                                                <div className='flex items-center justify-center space-x-3'>
+                                                    <RiEdit2Fill className='cursor-pointer hover:text-green-700 text-2xl text-green-500' />
+                                                    <RiDeleteBin5Fill className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

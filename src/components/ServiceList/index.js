@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CatMenu from "../CatMenu";
 import DogMenu from "../DogMenu";
+import ProdutosMenu from "../ProdutosMenu";
 
 const ServiceList = () => {
     const [categoriaTab, setCategoriaTab] = useState('Gato');
@@ -10,6 +11,7 @@ const ServiceList = () => {
             <div className="flex items-center justify-center space-x-6">
                 <p id="categoria-selection" className={categoriaTab === 'Gato' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Gato')}>Gato</p>
                 <p id="categoria-selection" className={categoriaTab === 'Cachorro' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Cachorro')}>Cachorro</p>
+                <p id="categoria-selection" className={categoriaTab === 'Produtos' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Produtos')}>Produtos</p>
             </div>
 
             <div>
@@ -19,6 +21,7 @@ const ServiceList = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
                 {categoriaTab === 'Gato' ? <CatMenu /> : null}
                 {categoriaTab === 'Cachorro' ? <DogMenu /> : null}
+                {categoriaTab === 'Produtos' ? <ProdutosMenu /> : null}
             </div>
         </section>
     );
