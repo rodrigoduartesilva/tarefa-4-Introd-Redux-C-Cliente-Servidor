@@ -6,4 +6,10 @@ const addProductAPI = (product) =>
         .catch((err) => err)
 
 
-export { addProductAPI };
+const findAllProducts = () =>
+    api.get('/produto/findAll')
+        .then((response) => response)
+        .catch((err) => err)
+
+
+export { addProductAPI, findAllProducts };
