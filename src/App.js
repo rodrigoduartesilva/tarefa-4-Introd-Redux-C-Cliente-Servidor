@@ -18,6 +18,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Admin from './pages/Admin';
 import AddProduct from './pages/AddProduct';
+import EditProduct from './pages/EditProduct';
 
 function App() {
   return (
@@ -34,10 +35,16 @@ function App() {
               <Admin />
             </ProtectedRoute>
           } /> */}
-          <Route path='/add-product' element={<AddProduct />} />
+          <Route path='/admin/add-product' element={<AddProduct />} />
           {/* <Route path='/add-product' element={
             <ProtectedRoute>
               <AddProduct />
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/admin/edit-product/:id' element={<EditProduct />} />
+          {/* <Route path='/edit-product/:id' element={
+            <ProtectedRoute>
+              <EditProduct />
             </ProtectedRoute>
           } /> */}
           <Route path='/contato' element={<Contato />} />

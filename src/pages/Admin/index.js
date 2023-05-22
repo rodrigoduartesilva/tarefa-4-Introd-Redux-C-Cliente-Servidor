@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RiEdit2Fill } from 'react-icons/ri';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { findAllProducts } from '../../services/productService';
 
 const Admin = () => {
@@ -21,7 +21,7 @@ const Admin = () => {
     return (
         <section className='my-12 max-w-screen-xl mx-auto px-6'>
             <div className='flex justify-end space-y-2'>
-                <button className='bg-primary text-white px-8 py-2 rounded-full transition duration-300 hover:scale-105' onClick={() => navigate('/add-product')}>Adiciona Produto</button>
+                <button className='bg-primary text-white px-8 py-2 rounded-full transition duration-300 hover:scale-105' onClick={() => navigate('/admin/add-product')}>Adiciona Produto</button>
             </div>
             <div className='flex flex-col my-8'>
                 <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
@@ -64,7 +64,9 @@ const Admin = () => {
                                             </td>
                                             <td className='px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center'>
                                                 <div className='flex items-center justify-center space-x-3'>
-                                                    <RiEdit2Fill className='cursor-pointer hover:text-green-700 text-2xl text-green-500' />
+                                                    <Link to={`/admin/edit-product/${product._id}`}>
+                                                        <RiEdit2Fill className='cursor-pointer hover:text-green-700 text-2xl text-green-500' />
+                                                    </Link>
                                                     <RiDeleteBin5Fill className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
                                                 </div>
                                             </td>
