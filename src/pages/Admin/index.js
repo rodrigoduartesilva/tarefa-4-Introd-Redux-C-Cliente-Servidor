@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { RiEdit2Fill } from 'react-icons/ri';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { Link, useNavigate } from 'react-router-dom';
-import { findAllProducts } from '../../services/productService';
+import { findAllProducts, deleteProductById } from '../../services/productService';
 
 const Admin = () => {
     const [products, setProducts] = useState([]);
@@ -16,6 +16,14 @@ const Admin = () => {
     const getAllProducts = async () => {
         const response = await findAllProducts();
         setProducts(response.data);
+    }
+
+    const removeProduct = async (id) => {
+        const answer = window.confirm(`Deseja realmente excluir o produto?`);
+        if (answer) {
+            await deleteProductById(id);
+            getAllProducts();
+        }
     }
 
     return (
@@ -67,7 +75,7 @@ const Admin = () => {
                                                     <Link to={`/admin/edit-product/${product._id}`}>
                                                         <RiEdit2Fill className='cursor-pointer hover:text-green-700 text-2xl text-green-500' />
                                                     </Link>
-                                                    <RiDeleteBin5Fill className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
+                                                    <RiDeleteBin5Fill onClick={() => removeProduct(product._id)} className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
                                                 </div>
                                             </td>
                                         </tr>

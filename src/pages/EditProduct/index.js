@@ -55,6 +55,8 @@ const EditProduct = () => {
 
         const response = await updateProductById(id, productForm);
 
+        console.log(productForm);
+
         if (response) {
             alert(`Produto editado com sucesso!`);
             navigate('/admin');
