@@ -27,6 +27,13 @@ body {
     border: 1px solid #F2974B;
 }
 
+.flex-direction-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
 .text-color-login {
     color: #58B5A9;
 }

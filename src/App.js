@@ -19,6 +19,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import Admin from './pages/Admin';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
+import ProdutoInfo from './pages/ProdutoInfo';
 
 function App() {
   return (
@@ -39,6 +40,12 @@ function App() {
           {/* <Route path='/add-product' element={
             <ProtectedRoute>
               <AddProduct />
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/produto/:id' element={<ProdutoInfo />} />
+          {/* <Route path='/produto/:id' element={
+            <ProtectedRoute>
+              <ProdutoInfo/>
             </ProtectedRoute>
           } /> */}
           <Route path='/admin/edit-product/:id' element={<EditProduct />} />

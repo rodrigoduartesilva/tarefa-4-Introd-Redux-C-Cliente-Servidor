@@ -9,8 +9,8 @@ const ProdutosServiceItem = ({ service }) => {
             <div className="flex flex-col items-center my-3 space-y-2">
                 <h1 className="text-gray-900 text-lg">{service.nome}</h1>
                 <p className="text-gray-500 text-sm text-center">{service.descricao}</p>
-                <h2 className="text-gray-900 text-2xl font-bold">R$ {(service.precoUnitario).toFixed(2)}</h2>
-                <Button><Link to='/gatomenu/gato_service_1'>Mais Informações</Link></Button>
+                <h2 className="text-gray-900 text-2xl font-bold">R$ {service.precoUnitario}</h2>
+                <Button><Link to={`/produto/${service._id}`}>Mais Informações deste Produto</Link></Button>
             </div>
         </div>
     );
