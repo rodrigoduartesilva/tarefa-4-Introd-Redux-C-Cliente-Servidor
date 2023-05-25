@@ -10,13 +10,13 @@ const EditProduct = () => {
     const navigate = useNavigate();
 
     const [productForm, setProductForm] = useState({
-        _id: '',
+
         nome: '',
         descricao: '',
         precoUnitario: 0,
         imagem: '',
-        codigoBarra: 0,
-        categorias: [{ _id: '' }]
+        codigoBarra: 0
+
     });
 
     const [categories, setCategories] = useState([]);
