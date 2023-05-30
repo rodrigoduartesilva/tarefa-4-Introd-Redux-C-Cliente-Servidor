@@ -20,6 +20,7 @@ import Admin from './pages/Admin';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import ProdutoInfo from './pages/ProdutoInfo';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -46,6 +47,12 @@ function App() {
           {/* <Route path='/produto/:id' element={
             <ProtectedRoute>
               <ProdutoInfo/>
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/carrinho' element={<Cart />} />
+          {/* <Route path='/carrinho' element={
+            <ProtectedRoute>
+              <Cart/>
             </ProtectedRoute>
           } /> */}
           <Route path='/admin/edit-product/:id' element={<EditProduct />} />
