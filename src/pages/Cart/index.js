@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { RiDeleteBinFill } from 'react-icons/ri';
-import { sendCart } from '../../services/OrderService';
+import { sendCart, addOrder } from '../../services/OrderService';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+    const navigate = useNavigate();
     const [productCart, setProductCart] = useState([]);
     const [totalValue, setTotalValue] = useState(0);
     const [address, setAddress] = useState({
@@ -21,6 +23,13 @@ const Cart = () => {
         }, 0);
         setTotalValue(total);
     }, []);
+
+    const remove = (id) => {
+        const storageCart = JSON.parse(localStorage.getItem('productCart'));
+        const filterCart = storageCart.filter((product) => product._id !== id);
+        localStorage.setItem('productCart', JSON.stringify(filterCart));
+        setProductCart(filterCart);
+    }
 
     const findAddress = async () => {
         const response = await axios.get(`https://viacep.com.br/ws/${address.cep}/json`);
@@ -44,6 +53,20 @@ const Cart = () => {
         }
 
         const response = await sendCart(cartInfo);
+
+        if (response.data) {
+            const order = {
+                produtos: response.data.produtos,
+                precoTotal: response.data.precoTotal,
+                frete: response.data.frete,
+                concluido: true,
+            }
+            const responseOrder = await addOrder(order);
+            if (responseOrder.data) {
+                localStorage.removeItem('productCart');
+                navigate('/complete');
+            }
+        }
     }
 
     const handleChangeValues = (event) => {
@@ -124,7 +147,7 @@ const Cart = () => {
                                             </span>
                                         </div>
                                         <div className='flex flex-col items-center justify-center'>
-                                            <RiDeleteBinFill className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
+                                            <RiDeleteBinFill onClick={() => remove(product._id)} className='cursor-pointer hover:text-red-700 text-2xl text-red-500' />
                                         </div>
                                     </div>
                                 ))}

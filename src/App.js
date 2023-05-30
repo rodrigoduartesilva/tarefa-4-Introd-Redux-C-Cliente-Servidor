@@ -21,6 +21,7 @@ import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import ProdutoInfo from './pages/ProdutoInfo';
 import Cart from './pages/Cart';
+import Complete from './pages/Complete';
 
 function App() {
   return (
@@ -53,6 +54,12 @@ function App() {
           {/* <Route path='/carrinho' element={
             <ProtectedRoute>
               <Cart/>
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/complete' element={<Complete />} />
+          {/* <Route path='/complete' element={
+            <ProtectedRoute>
+              <Complete/>
             </ProtectedRoute>
           } /> */}
           <Route path='/admin/edit-product/:id' element={<EditProduct />} />
