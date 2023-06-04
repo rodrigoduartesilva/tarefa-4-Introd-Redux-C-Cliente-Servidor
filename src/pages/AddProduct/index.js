@@ -133,8 +133,8 @@ const AddProduct = () => {
                         className='w-full bg-primary mt-6 mb-6 text-gray-500 px-4 py-2 rounded'
                     />
 
-                    <div className='mt-8'>
-                        <button type='submit' className='w-full bg-primary text-white px-8 py-2 rounded transition duration-300 hover:scale-105'>Adicionar</button>
+                    <div className='mt-8 flex items-center justify-center'>
+                        <button type='submit' className='bg-primary text-white mt-10 px-8 py-2 rounded transition duration-300 hover:bg-emerald-500'>Adicionar Produto</button>
                     </div>
                 </div>
 
