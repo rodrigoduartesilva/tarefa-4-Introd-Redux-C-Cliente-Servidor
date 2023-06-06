@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import CatMenu from "../CatMenu";
 import DogMenu from "../DogMenu";
 import ProdutosMenu from "../ProdutosMenu";
+import { FaCat, FaDog } from 'react-icons/fa';
+import { MdProductionQuantityLimits } from 'react-icons/md';
 
 const ServiceList = () => {
     const [categoriaTab, setCategoriaTab] = useState('Gato');
@@ -9,9 +11,9 @@ const ServiceList = () => {
     return (
         <section className="my-12 max-w-screen-xl mx-auto px-3">
             <div className="flex items-center justify-center space-x-6">
-                <p id="categoria-selection" className={categoriaTab === 'Gato' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Gato')}>Gato</p>
-                <p id="categoria-selection" className={categoriaTab === 'Cachorro' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Cachorro')}>Cachorro</p>
-                <p id="categoria-selection" className={categoriaTab === 'Produtos' ? 'active-menu-tab bg-primary' : 'menu-tab'} onClick={() => setCategoriaTab('Produtos')}>Produtos</p>
+                <p id="categoria-selection" className={categoriaTab === 'Gato' ? 'active-menu-tab bg-primary flex items-center justify-center' : 'menu-tab flex items-center justify-center'} onClick={() => setCategoriaTab('Gato')}><FaCat className="mr-3 w-4 h-4" />Cats</p>
+                <p id="categoria-selection" className={categoriaTab === 'Cachorro' ? 'active-menu-tab bg-primary flex items-center justify-center' : 'menu-tab flex items-center justify-center'} onClick={() => setCategoriaTab('Cachorro')}><FaDog className="mr-3 w-4 h-4" />Dogs</p>
+                <p id="categoria-selection" className={categoriaTab === 'Produtos' ? 'active-menu-tab bg-primary flex items-center justify-center' : 'menu-tab flex items-center justify-center'} onClick={() => setCategoriaTab('Produtos')}><MdProductionQuantityLimits className="mr-3 w-4 h-4" />Compra</p>
             </div>
 
             <div>

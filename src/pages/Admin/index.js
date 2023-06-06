@@ -29,7 +29,7 @@ const Admin = () => {
     return (
         <section className='my-12 max-w-screen-xl mx-auto px-6'>
             <div className='flex justify-end space-y-2'>
-                <button className='bg-primary text-white px-8 py-2 rounded-full transition duration-300 hover:scale-105' onClick={() => navigate('/admin/add-product')}>Adiciona Produto</button>
+                <button className='bg-primary text-white px-8 py-2 rounded transition duration-300 hover:bg-emerald-500' onClick={() => navigate('/admin/add-product')}>Adiciona Produto</button>
             </div>
             <div className='flex flex-col my-8'>
                 <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>

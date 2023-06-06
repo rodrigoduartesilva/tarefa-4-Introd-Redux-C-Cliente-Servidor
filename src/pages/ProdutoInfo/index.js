@@ -45,7 +45,7 @@ const ProdutoInfo = () => {
         <main className='max-w-screen-xl mx-auto px-6 my-16'>
             <div className='flex flex-col justify-center items-center h-screen'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>
-                    <div className='order-2 md:order-1 lg:order-1 flex flex-col justify-center'>
+                    <div className='order-2 md:order-1 lg:order-1 flex flex-col items-center justify-center'>
                         <h1 className='text-center md:text-left lg:text-left text-3xl lg:text-4xl font-semibold poppins pb-4 text-gray-700 select-none'>
                             {product.nome}
                         </h1>

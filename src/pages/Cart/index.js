@@ -35,7 +35,9 @@ const Cart = () => {
         const response = await axios.get(`https://viacep.com.br/ws/${address.cep}/json`);
         setAddress({
             ...address,
-            rua: `${response.data.logradouro}, ${response.data.bairro}, ${response.data.localidade}`,
+            rua: `${response.data.logradouro}`,
+            bairro: ` ${response.data.bairro}`,
+            cidade: `${response.data.localidade}`
         })
     }
 
@@ -83,11 +85,11 @@ const Cart = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>
                     <div className='col-span-1'>
                         <div className='flex flex-col mt-20'>
-                            <h2 className='text-2xl poppins pb-4 text-gray-700'>
+                            <h2 className='text-2xl text-center poppins pb-4 text-gray-700'>
                                 Adicione seu endereço
                             </h2>
-                            <form className='my-4'>
-                                <div className='flex flex-col space-y-3'>
+                            <form className='flex items-center justify-center w-full'>
+                                <div className='flex flex-col space-y-2'>
                                     <input
                                         type='text'
                                         name='cep'
@@ -95,7 +97,7 @@ const Cart = () => {
                                         id='cep'
                                         value={address.cep}
                                         onChange={handleChangeValues}
-                                        className='w-full bg-primary mt-6 mb-6 text-white px-8 py-2 rounded transition duration-300'
+                                        className='w-full bg-primary mt-6 text-white px-8 py-2 rounded transition duration-300'
                                     />
                                     <input
                                         type='text'
@@ -103,6 +105,26 @@ const Cart = () => {
                                         placeholder='rua'
                                         id='rua'
                                         value={address.rua}
+                                        onChange={handleChangeValues}
+                                        onFocus={findAddress}
+                                        className='w-full bg-primary mt-6 mb-6 text-white px-8 py-2 rounded transition duration-300'
+                                    />
+                                    <input
+                                        type='text'
+                                        name='bairro'
+                                        placeholder='bairro'
+                                        id='bairro'
+                                        value={address.bairro}
+                                        onChange={handleChangeValues}
+                                        onFocus={findAddress}
+                                        className='w-full bg-primary mt-6 mb-6 text-white px-8 py-2 rounded transition duration-300'
+                                    />
+                                    <input
+                                        type='text'
+                                        name='cidade'
+                                        placeholder='cidade'
+                                        id='cidade'
+                                        value={address.cidade}
                                         onChange={handleChangeValues}
                                         onFocus={findAddress}
                                         className='w-full bg-primary mt-6 mb-6 text-white px-8 py-2 rounded transition duration-300'
@@ -182,14 +204,14 @@ const Cart = () => {
                                         Endereço de Entrega
                                     </p>
                                     <span className='font-semibold text-black'>
-                                        {address.rua}
+                                        {address.rua} - {address.bairro} - {address.cidade}
                                     </span>
                                     <span className='font-semibold text-black'>
                                         Número: {address.numero} - complemento: {address.complemento}
                                     </span>
                                 </div>
-                                <div>
-                                    <button onClick={sendOrder} className='w-full px-6 py-3 rounded-lg bg-primary text-white poppins focus:ring-4 transition duration-500'>
+                                <div className='flex items-center justify-center'>
+                                    <button onClick={sendOrder} className='w-auto px-6 py-3 rounded bg-primary text-white poppins focus:ring-4 transition duration-500 hover:bg-emerald-500'>
                                         Fazer Pedido
                                     </button>
                                 </div>
