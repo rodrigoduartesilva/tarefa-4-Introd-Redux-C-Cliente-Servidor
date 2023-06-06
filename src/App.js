@@ -33,55 +33,47 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/cadastro' element={<Cadastro />} />
-          <Route path='/admin' element={<Admin />} />
-          {/* <Route path='/admin' element={
+          <Route path='/admin' element={
             <ProtectedRoute>
               <Admin />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/user' element={<UserData />} />
-          {/* <Route path='/user' element={
+          } />
+          <Route path='/user' element={
             <ProtectedRoute>
               <UserData />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/admin/add-product' element={<AddProduct />} />
-          {/* <Route path='/add-product' element={
+          } />
+          <Route path='/admin/add-product' element={
             <ProtectedRoute>
               <AddProduct />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/produto/:id' element={<ProdutoInfo />} />
-          {/* <Route path='/produto/:id' element={
+          } />
+          <Route path='/produto/:id' element={
             <ProtectedRoute>
-              <ProdutoInfo/>
+              <ProdutoInfo />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/carrinho' element={<Cart />} />
-          {/* <Route path='/carrinho' element={
+          } />
+          <Route path='/carrinho' element={
             <ProtectedRoute>
-              <Cart/>
+              <Cart />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/complete' element={<Complete />} />
-          {/* <Route path='/complete' element={
+          } />
+          <Route path='/complete' element={
             <ProtectedRoute>
-              <Complete/>
+              <Complete />
             </ProtectedRoute>
-          } /> */}
-          <Route path='/admin/edit-product/:id' element={<EditProduct />} />
-          {/* <Route path='/edit-product/:id' element={
+          } />
+          <Route path='/admin/edit-product/:id' element={
             <ProtectedRoute>
               <EditProduct />
             </ProtectedRoute>
-          } /> */}
+          } />
           <Route path='/contato' element={<Contato />} />
-          <Route path='/servicelist' element={<ServiceList />} />
-          {/* <Route path='/servicelist' element={
+          <Route path='/servicelist' element={
             <ProtectedRoute>
               <ServiceList />
             </ProtectedRoute>
-          } /> */}
+          } />
 
           <Route path='/gatomenu/:id' element={<CatShowerServiceItemInformation />} />
           <Route path='/gatomenu_/:id' element={<CatVetServiceItemInformation />} />
