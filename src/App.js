@@ -22,6 +22,7 @@ import EditProduct from './pages/EditProduct';
 import ProdutoInfo from './pages/ProdutoInfo';
 import Cart from './pages/Cart';
 import Complete from './pages/Complete';
+import UserData from './components/UserData';
 
 function App() {
   return (
@@ -36,6 +37,12 @@ function App() {
           {/* <Route path='/admin' element={
             <ProtectedRoute>
               <Admin />
+            </ProtectedRoute>
+          } /> */}
+          <Route path='/user' element={<UserData />} />
+          {/* <Route path='/user' element={
+            <ProtectedRoute>
+              <UserData />
             </ProtectedRoute>
           } /> */}
           <Route path='/admin/add-product' element={<AddProduct />} />
