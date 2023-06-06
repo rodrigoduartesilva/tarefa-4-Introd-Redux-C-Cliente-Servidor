@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const navigate = useNavigate();
+    const frete = 5;
     const [productCart, setProductCart] = useState([]);
     const [totalValue, setTotalValue] = useState(0);
     const [address, setAddress] = useState({
@@ -161,11 +162,11 @@ const Cart = () => {
                                         </div>
                                         <div className='flex flex-col space-y-3 flex-grow'>
                                             <h5 className='text-base poppins text-gray-700'>{product.nome}</h5>
-                                            <h3 className='font-semibold text-lg text-primary poppins'>R$ {product.precoUnitario}</h3>
+                                            <h3 className='font-semibold text-lg text-primary poppins'>R$ {(product.precoUnitario).toFixed(2)}</h3>
                                         </div>
                                         <div className='flex items-center px-4 py-2 space-x-3'>
-                                            <span className='text-lg text-gray-500 select-nome'>
-                                                {product.quantity} unidades
+                                            <span className='flex text-lg text-gray-500 select-nome'>
+                                                <p>Qtd: {product.quantity}</p>
                                             </span>
                                         </div>
                                         <div className='flex flex-col items-center justify-center'>
@@ -179,16 +180,18 @@ const Cart = () => {
                                     <span className='flex-grow poppins text-gray-700'>
                                         Total:
                                     </span>
-                                    <span className='poppins font-semibold text-black'>
-                                        R$ {totalValue}
-                                    </span>
+                                    {productCart.map((product) => (
+                                        <span className='poppins font-semibold text-black'>
+                                            R$ {(product.quantity * totalValue).toFixed(2)}
+                                        </span>
+                                    ))}
                                 </div>
                                 <div className='flex items-center'>
                                     <span className='flex-grow poppins text-gray-700'>
                                         Taxa de Entrega:
                                     </span>
                                     <span className='poppins font-semibold text-black'>
-                                        R$ 5
+                                        R$ {(frete).toFixed(2)}
                                     </span>
                                 </div>
                                 <div className='flex items-center'>
@@ -196,7 +199,7 @@ const Cart = () => {
                                         Total + taxa:
                                     </span>
                                     <span className='poppins font-semibold text-black text-xl'>
-                                        R$ {totalValue + 5}
+                                        R$ {(totalValue + frete).toFixed(2)}
                                     </span>
                                 </div>
                                 <div className='flex flex-col space-y-4 mb-3'>
